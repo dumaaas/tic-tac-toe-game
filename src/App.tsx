@@ -1,25 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import GameWrapper from "./components/GameWrapper";
+import PlayerContext from "./context/PlayerContext";
 
 function App() {
+  const [playerOneMoves, setPlayerOneMoves] = useState<number[]>([]);
+  const [playerTwoMoves, setPlayerTwoMoves] = useState<number[]>([]);
+  const [gameDisabled, setGameDisabled] = useState<boolean>(false);
+  const [playerOne, setPlayerOne] = useState<string>("");
+  const [playerTwo, setPlayerTwo] = useState<string>("");
+  const [playerOneWins, setPlayerOneWins] = useState<number>(0);
+  const [playerTwoWins, setPlayerTwoWins] = useState<number>(0);
+  const [tiesCount, setTiesCount] = useState<number>(0);
+  const [shouldGameReset, setShouldGameReset] = useState<boolean>(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="bg-blue-600">
+      <PlayerContext.Provider
+        value={{
+          playerOneMoves,
+          setPlayerOneMoves,
+          playerTwoMoves,
+          setPlayerTwoMoves,
+          gameDisabled,
+          setGameDisabled,
+          playerOne,
+          setPlayerOne,
+          playerTwo,
+          setPlayerTwo,
+          playerOneWins,
+          setPlayerOneWins,
+          playerTwoWins,
+          setPlayerTwoWins,
+          tiesCount,
+          setTiesCount,
+          shouldGameReset,
+          setShouldGameReset
+        }}
+      >
+        <GameWrapper />
+      </PlayerContext.Provider>
+    </main>
   );
 }
 
