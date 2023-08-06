@@ -13,6 +13,7 @@ function App() {
   const [playerTwoWins, setPlayerTwoWins] = useState<number>(0);
   const [tiesCount, setTiesCount] = useState<number>(0);
   const [shouldGameReset, setShouldGameReset] = useState<boolean>(false);
+  const [winningCombination, setWinningCombination] = useState<number>(0);
 
   return (
     <main className="bg-blue-600">
@@ -35,7 +36,9 @@ function App() {
           tiesCount,
           setTiesCount,
           shouldGameReset,
-          setShouldGameReset
+          setShouldGameReset,
+          winningCombination,
+          setWinningCombination,
         }}
       >
         <GameWrapper />

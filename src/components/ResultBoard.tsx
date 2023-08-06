@@ -1,7 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-import ChoosePlayer from "./ChoosePlayer";
-import GameBox from "./GameBox";
-import Title from "./Title";
 import PlayerContext from "../context/PlayerContext";
 
 function ResultBoard() {

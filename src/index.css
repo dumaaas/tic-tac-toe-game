@@ -39,3 +39,27 @@ body {
 .slick-arrow::before {
   @apply !text-yellow-500 opacity-100;
 }
+
+.width-animation {
+    -webkit-transition: width 1s ease-in-out;
+    -moz-transition: width 1s ease-in-out;
+    -o-transition: width 1s ease-in-out;
+    transition: width 1s ease-in-out;
+    width: 0;
+}
+
+.width-animation-final-small {
+  -webkit-transition: width 1s ease-in-out;
+  -moz-transition: width 1s ease-in-out;
+  -o-transition: width 1s ease-in-out;
+  transition: width 1s ease-in-out;
+  width: 320px;
+}
+
+.width-animation-final-big {
+  -webkit-transition: width 1s ease-in-out;
+  -moz-transition: width 1s ease-in-out;
+  -o-transition: width 1s ease-in-out;
+  transition: width 1s ease-in-out;
+  width: 360px;
+}

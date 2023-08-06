@@ -35,6 +35,7 @@ function ActionButton({
     setTiesCount,
     shouldGameReset,
     setShouldGameReset,
+    setWinningCombination,
   } = useContext(PlayerContext);
 
   const isPlayerOneMove = countMoves % 2 === 0;
@@ -45,10 +46,13 @@ function ActionButton({
   }, [isPlayerOneMove]);
 
   const resetGame = () => {
-    setPlayerOneMoves([]);
-    setPlayerTwoMoves([]);
-    setShouldGameReset(true);
-    setGameDisabled(false);
+    setTimeout(() => {
+      setGameDisabled(false);
+      setPlayerOneMoves([]);
+      setPlayerTwoMoves([]);
+      setShouldGameReset(true);
+      setWinningCombination(0);
+    }, 1200);
   };
 
   useEffect(() => {
@@ -130,6 +134,7 @@ function ActionButton({
 
       // Ako je pronalazak kombinacije uspješan, vraćamo true
       if (isWinningCombination) {
+        setWinningCombination(i + 1);
         return true;
       }
     }

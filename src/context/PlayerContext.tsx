@@ -19,6 +19,8 @@ type PlayerState = {
   setTiesCount: React.Dispatch<React.SetStateAction<number>>;
   shouldGameReset: boolean;
   setShouldGameReset: React.Dispatch<React.SetStateAction<boolean>>;
+  winningCombination: number;
+  setWinningCombination: React.Dispatch<React.SetStateAction<number>>;
 };
 
 const defaultPlayerState: PlayerState = {
@@ -40,6 +42,8 @@ const defaultPlayerState: PlayerState = {
   setTiesCount: () => {},
   shouldGameReset: false,
   setShouldGameReset: () => {},
+  winningCombination: 0,
+  setWinningCombination: () => {},
 };
 
 const PlayerContext = createContext(defaultPlayerState);
