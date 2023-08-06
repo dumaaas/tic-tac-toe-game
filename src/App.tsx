@@ -15,6 +15,8 @@ function App() {
   const [shouldGameReset, setShouldGameReset] = useState<boolean>(false);
   const [winningCombination, setWinningCombination] = useState<number>(0);
 
+  document.title ="Tic Tac Toe Game"; 
+  
   return (
     <main className="bg-blue-600">
       <PlayerContext.Provider
