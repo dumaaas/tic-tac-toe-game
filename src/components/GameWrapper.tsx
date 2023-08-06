@@ -38,7 +38,7 @@ function GameWrapper() {
   return (
     <div className="min-w-screen min-h-screen container md:px-8 px-4 mx-auto py-8">
       <Title
-        title="TIC TOE GAME"
+        title="TIC TAC TOE GAME"
         subtitle="Let's chose your characters and play this awesome game! 🚀"
       />
       {!shouldStartGame ? (

@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import PlayerContext from "../context/PlayerContext";
+import crossImg from "../assets/cross.png";
 
 type ActionButtonProps = {
   countMoves: number;
@@ -12,9 +13,10 @@ function ActionButton({
   fieldName,
   setCountMoves,
 }: ActionButtonProps) {
-  const [isClicked, setIsClicked] = useState(false);
-  const [imageButton, setImageButton] = useState("");
-  const [hoverImageButton, setHoverImageButton] = useState("");
+  const [isClicked, setIsClicked] = useState<boolean>(false);
+  const [imageButton, setImageButton] = useState<string>("");
+  const [hoverImageButton, setHoverImageButton] = useState<string>("");
+  const [isCross, setIsCross] = useState<boolean>(false);
 
   const {
     playerOneMoves,
@@ -64,6 +66,7 @@ function ActionButton({
     setIsClicked(true);
     setCountMoves(countMoves + 1);
     isPlayerOneMove ? setImageButton(playerOne) : setImageButton(playerTwo);
+    isPlayerOneMove ? setIsCross(true) : setIsCross(false);
     if (isPlayerOneMove) {
       let newMoves = [...playerTwoMoves];
       newMoves.push(fieldName);
@@ -155,7 +158,22 @@ function ActionButton({
       } relative group transition-all ease-in-out duration-300 sm:w-[120px] sm:h-[120px] w-[92px] h-[92px] border-yellow-500 border flex items-center justify-center`}
     >
       {isClicked ? (
-        <img src={imageButton} className="select-none w-[60%] pointer-events-none" alt="bate moj" />
+        <>
+          <img
+            src={imageButton}
+            className="select-none w-[60%] pointer-events-none opacity-60"
+            alt="bate moj"
+          />
+          {isCross ? (
+            <img
+              src={crossImg}
+              className="select-none w-full pointer-events-none absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%]"
+              alt="bate moj"
+            />
+          ) : (
+            <div className="w-[80px] h-[80px] rounded-full border-[10px] border-green-500 bg-transparent absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%]"></div>
+          )}
+        </>
       ) : null}
       {!isClicked ? (
         <img
