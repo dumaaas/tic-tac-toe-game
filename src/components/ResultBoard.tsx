@@ -73,7 +73,7 @@ function ResultBoard() {
         <p
           className={`${
             playerTwoChanged ? "text-green-500 scale-125" : "sm:text-yellow-500 text-black"
-          } w-[40px] h-[40px] sm:rounded-none sm:bg-transparent sm:w-auto sm:h-auto sm:border-0 rounded-full bg-yellow-500 border-4 border-black flex items-center justify-center sm:relative absolute top-[-5px] right-[-22px] sm:top-auto sm:right-auto transform scale-100 sm:text-[60px] text-[32px] transition-all duration-1000 ease-in-out font-bold`}
+          } w-[40px] h-[40px] sm:rounded-none sm:bg-transparent sm:w-auto sm:h-auto sm:border-0 rounded-full bg-yellow-500 border-4 border-black flex items-center justify-center sm:relative absolute top-[-2px] right-[-22px] sm:top-auto sm:right-auto transform scale-100 sm:text-[60px] text-[28px] transition-all duration-1000 ease-in-out font-bold`}
         >
           {playerTwoWins}
         </p>
