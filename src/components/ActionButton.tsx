@@ -1,7 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-import img1 from "../assets/cc2_preview_rev_1.png";
-import img2 from "../assets/cc_preview_rev_1.png";
-import img3 from "../assets/zek_preview_rev_1.png";
 import PlayerContext from "../context/PlayerContext";
 
 type ActionButtonProps = {
@@ -17,6 +14,9 @@ function ActionButton({
 }: ActionButtonProps) {
   const [isClicked, setIsClicked] = useState(false);
   const [imageButton, setImageButton] = useState("");
+  const [hoverImageButton, setHoverImageButton] = useState("");
+
+  console.log(countMoves, "countMoves");
 
   const {
     playerOneMoves,
@@ -38,6 +38,11 @@ function ActionButton({
   } = useContext(PlayerContext);
 
   const isPlayerOneMove = countMoves % 2 === 0;
+
+  useEffect(() => {
+    if (isPlayerOneMove) setHoverImageButton(playerOne);
+    else setHoverImageButton(playerTwo);
+  }, [isPlayerOneMove]);
 
   const resetGame = () => {
     setPlayerOneMoves([]);
@@ -147,10 +152,19 @@ function ActionButton({
   return (
     <div
       onClick={!gameDisabled ? () => handlePress() : () => null}
-      className="w-[120px] h-[120px] border-yellow-500 border flex items-center justify-center"
+      className={`${
+        !isClicked ? "hover:bg-blue-500" : ""
+      } relative group transition-all ease-in-out duration-300 sm:w-[120px] sm:h-[120px] w-[92px] h-[92px] border-yellow-500 border flex items-center justify-center`}
     >
       {isClicked ? (
-        <img src={imageButton} className="w-[60%]" alt="bate moj" />
+        <img src={imageButton} className="select-none w-[60%] pointer-events-none" alt="bate moj" />
+      ) : null}
+      {!isClicked ? (
+        <img
+          src={hoverImageButton}
+          className="select-none pointer-events-none absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] w-[60%] opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-300"
+          alt="bate moj"
+        />
       ) : null}
     </div>
   );

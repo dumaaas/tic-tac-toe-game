@@ -16,7 +16,7 @@ function ChoosePlayer({
   oponentPlayer,
 }: ChoosePlayerProps) {
   return (
-    <div className="flex gap-2 justify-center flex-col items-center my-8">
+    <div className="flex gap-2 justify-center flex-col items-center sm:mt-8 sm:mb-8 mx-auto my-4">
       <p className="text-[30px] text-yellow-500 font-bold">{title} </p>
       <div className="flex items-center justify-center gap-2">
         <div
