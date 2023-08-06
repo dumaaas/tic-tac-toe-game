@@ -10,3 +10,32 @@ body {
   padding: 0;
 }
 
+.slick-list {
+  max-width: 330px !important;
+}
+
+.slick-track {
+  gap: 10px !important;
+  display: flex !important;
+}
+
+.slick-prev {
+  left: -16px !important;
+}
+
+.slick-next {
+  right: -25px !important;
+}
+
+@media only screen and (max-width: 450px) {
+  .slick-list {
+    max-width: 230px !important;
+  }
+  .slick-next {
+    right: -16px !important;
+  }
+}
+
+.slick-arrow::before {
+  @apply !text-yellow-500 opacity-100;
+}

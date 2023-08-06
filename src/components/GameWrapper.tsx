@@ -43,7 +43,7 @@ function GameWrapper() {
       />
       {!shouldStartGame ? (
         <div>
-          <div className="flex justify-between max-w-[730px] flex-wrap mx-auto items-center gap-1 text-center">
+          <div className="flex justify-between max-w-[830px] flex-wrap mx-auto items-center sm:gap-10 text-center">
             <ChoosePlayer
               onChoose={setPlayerOne}
               selectedPlayer={playerOne}

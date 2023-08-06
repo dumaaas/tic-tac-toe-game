@@ -16,8 +16,6 @@ function ActionButton({
   const [imageButton, setImageButton] = useState("");
   const [hoverImageButton, setHoverImageButton] = useState("");
 
-  console.log(countMoves, "countMoves");
-
   const {
     playerOneMoves,
     setPlayerOneMoves,
